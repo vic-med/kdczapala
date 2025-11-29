@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiosco del Centro | Zapala</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      /*background-color: #181818; fondo oscuro */
+      color: #ededed;
+    }
+    .hero-banner {
+      background-image: url("banner-superior.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+
+      aspect-ratio: 4/1; /* Ajustá a la proporción real del banner */
+    }
+
+
+    img {
+      -webkit-user-drag: none;
+      user-drag: none;
+      pointer-events: none; /* Evita arrastrar y seleccionar */
+    }
+
+    .luckiest-guy-regular {
+      font-family: "Luckiest Guy", cursive;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .subtitulo {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    
+
+    section {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #e80a0a;
+      margin-bottom: 1rem;
+      font-family: "Luckiest Guy";
+      text-shadow:
+        -2px -2px 0 #fff,
+        2px -2px 0 #fff,
+        -2px  2px 0 #fff,
+        2px  2px 0 #fff;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 1rem;
+      max-width: 400px;
+      text-align: left;
+    }
+
+    li {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .formas-pago {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .titulo-con-contorno {
+      color: #e00000; /* o el color que uses */
+      text-shadow:
+         -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+        1px  1px 0 #fff;
+    }
+
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 12px;
+    border: 4px solid #e80a0a; 
+
+    }
+
+    /* Mobile: una sola columna */
+    @media (max-width: 768px) {
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+
+      .galeria img {
+        height: 240px;
+      }
+    }
+
+    /* Carrusel de categorías */
+    .carrusel-categoria {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0px 0 10px;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 8px;
+    }
+
+
+    .carrusel-categoria::-webkit-scrollbar {
+      display: none; /* Opcional: oculta scrollbar en mobile */
+    }
+
+    .carrusel-categoria .producto {
+      flex: 0 0 160px; /* ancho fijo por tarjeta */
+      scroll-snap-align: start;
+      border: 4px solid #e80a0a;
+      background-color: #fff;
+      border-radius: 10px;
+
+      /* ⭐ SOMBRA PARA DESTACAR SOBRE LAS BARRAS */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+      padding: 5px;
+      
+    }
+
+    
+
+    .carrusel-categoria .producto p {
+      color: #322d2c;   /* ejemplo: naranja kiosco */
+      /*font-weight: bold; /* opcional */
+    }
+
+    .categoria {
+      margin-top: 2.5rem;
+      text-align: center;
+     border: 4px solid #e80a0a; 
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.4rem;
+      color: #e80a0a;
+      background-color: #6d6b6b;   /* gris claro */
+      padding: 10px 10px;
+      border-radius: 8px;
+      font-family: Luckiest Guy;
+       text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+        1px  1px 0 #fff;
+    }
+
+
+    
+    
+ .titulo-carrusel {
+  background: #ffffff;
+  padding: 8px 15px;
+  border-radius: 10px;
+  display: inline-block;
+  color: #e80a0a;
+  border: 4px solid #e80a0a; 
+  text-shadow:
+         -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+        1px  1px 0 #fff;
+}
+
+.carrusel-bg {
+  background: repeating-linear-gradient(
+    to right,
+    #cd3318 0%,
+    #cd3318 calc(100% / 9),
+    #ffffff calc(100% / 9),
+    #ffffff calc(2 * (100% / 9))
+  );
+  background-size: 100% 100%;
+  padding: 2rem 0; /* opcional */
+}
+
+    .carrusel-categoria .producto img {
+      border: 0px solid #e80a0a;       
+      border-radius: 6px;          
+    }
+
+
+   
+
+    .categoria + .carrusel-categoria {
+      margin-bottom: 1.5rem;
+    }
+
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .producto {
+      background-color: #fff;
+      border: 1px solid #323131;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 210px;
+      text-align: center;
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .boton-consulta {
+      background-color: #de0303; /*color boton consultar en cada producto*/
+      color: #fff;
+      padding: 6px 12px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background-color: #e80a0a;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+
+    /* --- FILA SUPERIOR (SERVICIOS + LOGO + WHATSAPP) --- */
+    .fila-superior {
+      background-color: #4e4d4c;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      color: #fff;
+      border-bottom: none; /* Quitamos la línea amarilla */
+      border-radius: 0;    /* Quitamos los bordes redondeados */
+      box-shadow: 0 5px 20px rgba(0,0,0,0.45); /* Sombra sigue igual */
+    }
+
+
+
+    /* Izquierda */
+    .header-contenido img {
+      width: 200px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .header-contenido {
+      text-align: center;
+    }
+
+    /* Botón WhatsApp */
+    .boton-whatsapp {
+      display: inline-block;
+      background-color: #25d366;
+      color: #fff !important;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-weight: bold;
+      margin-top: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .boton-whatsapp:hover {
+      background-color: #1eb957;
+    }
+
+    /* --- ENLACES: SIN VIOLETA --- */
+    .fila-superior a {
+      color: #ffdd55;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .fila-superior a:visited {
+      color: #ffdd55;
+    }
+
+    .fila-superior a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 6px rgba(255,255,255,0.8);
+    }
+
+    /* --- LISTA DE SERVICIOS --- */
+    .servicios-bloque {
+      max-width: 420px;
+    }
+
+    .servicios-bloque h2 {
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      font-size: 28px;
+    }
+
+    .servicios-bloque ul {
+      list-style: none;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    .servicios-bloque li {
+      margin-bottom: 8px;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .servicios-bloque li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 3px;
+      color: #ffd700;
+      font-size: 20px;
+    }
+
+    /* --- LOGO DE MICHACHEO ELEGANTE --- */
+    .logo-michacheo {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .logo-michacheo img {
+      width: 130px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+
+    .logo-michacheo-centro {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-michacheo-centro img {
+      width: 120px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.45);
+    }
+
+
+  /* Responsive */
+    @media (max-width: 768px) {
+      .luckiest-guy-regular {
+        font-size: 2.2rem;
+      }
+      .subtitulo {
+        font-size: 1rem;
+      }
+      .galeria img {
+        width: 100%;
+        max-width: 95%;
+      }
+      .productos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        justify-items: center;
+      }
+      .producto {
+        width: 100%;
+        max-width: 180px;
+      }
+    }
+
+
+/* RESPONSIVE: vuelve a columna en móvil */
+  @media (max-width: 768px) {
+      .fila-superior {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .fila-superior .col {
+        width: 100%;
+      }
+    }
+
+  /* Forzar logo centrado en móvil */
+  @media (max-width: 768px) {
+
+    .logo-michacheo {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Centrado horizontal */
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .logo-michacheo img {
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Cada columna al 100% para que nada empuje al logo */
+    .fila-superior .col,
+    .header-contenido,
+    .servicios-bloque {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+
+  </style>
+</head>
+
+<body oncontextmenu="return false;">
+  <header class="hero-banner"></header>
+
+  <section style="background-color: #4e4d4c;">
+    <h2 class="titulo-con-contorno">CONOCE NUESTRO LOCAL</h2>
+    <div class="galeria">
+      <img src="frente-local-noche.png" alt="Fachada del kiosco de noche" />
+      <img src="interior-local.png" alt="Interior del kiosco" />
+    </div>
+  </section>
+
+  <section class="carrusel-bg">
+    <h2 class="titulo-carrusel">ESTOS SON ALGUNOS DE LOS PRODUCTOS QUE VAS A ENCONTRAR EN EL KIOSCO</h2>
+
+    <h3 class="categoria">GOLOSINAS</h3>
+    <div class="carrusel-categoria">  
+
+      <div class="producto">
+        <img src="Diapositiva1.png" alt="Topline Ultra Defense" />
+        <p>Topline Ultra Defense</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva2.png" alt="Topline 7 Bubble Fun" />
+        <p>Topline 7 Bubble Fun</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva3.png" alt="Beldent Menta Fuerte" />
+        <p>Beldent Menta Fuerte</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva4.png" alt="Beldent Menta" />
+        <p>Beldent Menta</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva33.png" alt="Mogul Ositos" />
+        <p>Mogul Ositos</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva34.png" alt="Mento's Fresa" />
+        <p>Mento's Fresa</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva35.png" alt="Mento's Menta" />
+        <p>Mento's Menta</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+    </div>
+
+    <h3 class="categoria">BARRITAS DE CEREALES Y PROTEICAS</h3>
+    <div class="carrusel-categoria">  
+
+      <div class="producto">
+        <img src="Diapositiva55.png" alt="Raptor Plant Protein barra proteica" />
+        <p>Raptor Plant Protein barra proteica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva56.png" alt="Raptor Peanut & Butter barra proteica" />
+        <p>Raptor Peanut & Butter barra proteica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva57.png" alt="Raptor Cookies & Cream barra proteica" />
+        <p>Raptor Cookies & Cream barra proteica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva58.png" alt="Ena Bar Frutilla barra proteica" />
+        <p>Ena Bar Frutilla barra proteica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva59.png" alt="Ena Bar Chocolate Brownie barra proteica" />
+        <p>Ena Bar Chocolate Brownie barra proteica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva60.png" alt="Ena Bar Coco & Dulce de Leche barra proteica" />
+        <p>Ena Bar Coco & Dulce de Leche barra proteica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva61.png" alt="Ena Bar Banana Split barra proteica" />
+        <p>Ena Bar Banana Split barra proteica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+    </div>
+
+
+    <h3 class="categoria">AGUAS, JUGOS Y GASEOSAS</h3>
+    <div class="carrusel-categoria"> 
+
+        <div class="producto">
+          <img src="Diapositiva9.png" alt="Sprite lata" />
+          <p>Sprite lata 354 ml</p>
+          <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+        </div>
+
+        <div class="producto">
+          <img src="Diapositiva36.png" alt="Coca Cola 237 ml" />
+          <p>Coca Cola 237 ml</p>
+          <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+        </div>
+
+        <div class="producto">
+          <img src="Diapositiva37.png" alt="Eco de los Andes One" />
+          <p>Eco de los Andes ONE</p>
+          <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+        </div>
+
+        <div class="producto">
+          <img src="Diapositiva38.png" alt="Cepita Naranja x 1 litro" />
+          <p>Cepita Naranja x 1 litro</p>
+          <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+        </div>
+
+        <div class="producto">
+          <img src="Diapositiva52.png" alt="Aquarius Naranja 1,5 litros" />
+          <p>Aquarius Naranja 1,5 litros</p>
+          <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+        </div>
+
+        <div class="producto">
+          <img src="Diapositiva53.png" alt="Jugo BC Naranja 1 litro" />
+          <p>Jugo BC Naranja 1 litro</p>
+          <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+        </div>
+
+        <div class="producto">
+          <img src="Diapositiva54.png" alt="Jugo BC Manzana 200 ml" />
+          <p>Jugo BC Manzana 200 ml</p>
+          <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+        </div>
+
+    </div>
+    
+      <h3 class="categoria">GALLETITAS</h3>
+      <div class="carrusel-categoria">
+
+      <div class="producto">
+        <img src="Diapositiva5.png" alt="Pepas Trio" />
+        <p>Pepas Trio</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva6.png" alt="Oreo Clasica" />
+        <p>Oreo Clasica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva7.png" alt="Traviata Rex" />
+        <p>Traviata Rex</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva8.png" alt="Traviata Kesitas" />
+        <p>Traviata Kesitas</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva43.png" alt="Pepitos con chips" />
+        <p>Pepitos con chips</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva44.png" alt="Opera clasica" />
+        <p>Opera clasica</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      </div>
+
+    <h3 class="categoria">ENERGIZANTES E ISOTONICAS</h3>
+    <div class="carrusel-categoria">
+
+      <div class="producto">
+        <img src="Diapositiva10.png" alt="Gatorade Uva" />
+        <p>Gatorade Uva</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva11.png" alt="Gatorade Manzana" />
+        <p>Gatorade Manzana</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva12.png" alt="Gatorade Naranja" />
+        <p>Gatorade Naranja</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva13.png" alt="Gatorade Cool Blue" />
+        <p>Gatorade Cool Blue</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva14.png" alt="Gatorade Frutas Tropicales" />
+        <p>Gatorade Frutas Tropicales</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva15.png" alt="SueroX Arandano Pomelo" />
+        <p>SueroX Arandano Pomelo</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva16.png" alt="SueroX Frutos Rojos" />
+        <p>SueroX Frutos Rojos</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva17.png" alt="SueroX Manzana" />
+        <p>SueroX Manzana</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva18.png" alt="SueroX Frutilla Kiwi" />
+        <p>SueroX Frutilla Kiwi</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva19.png" alt="SueroX Limonada" />
+        <p>SueroX Limonada</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva20.png" alt="Speed Energy" />
+        <p>Speed Energy</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva21.png" alt="Monster Energy Pipeline Punch" />
+        <p>Monster Energy Pipeline Punch</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva22.png" alt="Monster Energy Ultra" />
+        <p>Monster Energy Ultra</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva23.png" alt="Monster Energy" />
+        <p>Monster Energy</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva24.png" alt="Monster Energy Mango Loco" />
+        <p>Monster Energy Mango Loco</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+    </div>
+
+    <h3 class="categoria">ALFAJORES</h3>
+    <div class="carrusel-categoria">
+
+      <div class="producto">
+        <img src="Diapositiva25.png" alt="Alfajor Bon o Bon Triple" />
+        <p>Alfajor Bon o Bon Triple</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva26.png" alt="Minitorta Aguila Blanco" />
+        <p>Minitorta Aguila Blanco</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva27.png" alt="Minitorta Aguila Coco" />
+        <p>Minitorta Aguila Coco</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva28.png" alt="Chocotorta" />
+        <p>Chocotorta</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva29.png" alt="Fantoche triple" />
+        <p>Fantoche triple</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva47.png" alt="Gula Alfajor" />
+        <p>Gula Alfajor</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+       <div class="producto">
+        <img src="Diapositiva48.png" alt="Tatin Blanco Triple" />
+        <p>Tatin Blanco Triple</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva49.png" alt="Tatin Negro Triple" />
+        <p>Tatin Negro Triple</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva50.png" alt="Tofi Negro Triple" />
+        <p>Tofi Negro Triple</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva51.png" alt="Tofi Blanco Triple" />
+        <p>Tofi Blanco Triple</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+    </div>
+
+    <h3 class="categoria">SNACKS</h3>
+    <div class="carrusel-categoria">
+
+      <div class="producto">
+        <img src="Diapositiva30.png" alt="Pringles Crema y Cebolla" />
+        <p>Pringles Crema y Cebolla</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva31.png" alt="Pringles Original" />
+        <p>Pringles Original</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+      
+      <div class="producto">
+        <img src="Diapositiva32.png" alt="Pringles Queso" />
+        <p>Pringles Queso</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva40.png" alt="Pringles Cheddar & Bacon" />
+        <p>Pringles Cheddar & Bacon</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva45.png" alt="Twistos Queso" />
+        <p>Twistos Queso</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva46.png" alt="Twistos Jamon Iberico" />
+        <p>Twistos Jamon Iberico</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+    </div>
+
+    <h3 class="categoria">CERVEZAS - APERITIVOS</h3>
+    <div class="carrusel-categoria">
+
+      <div class="producto">
+        <img src="Diapositiva39.png" alt="Patagonia 24.7 x 730 ml" />
+        <p>Patagonia 24.7 x 730 ml</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva41.png" alt="Patagonia Vera IPA x 730 ml" />
+        <p>Patagonia Vera IPA x 730 ml</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva42.png" alt="Patagonia Amber Lager x 730 ml" />
+        <p>Patagonia Amber Lager x 730 ml</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva62.png" alt="Quilmes rubia lata 473 ml" />
+        <p>Quilmes rubia lata 473 ml</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva63.png" alt="Brahma lata 473 ml" />
+        <p>Brahma lata 473 ml</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva64.png" alt="Stella Artois lata 710 ml" />
+        <p>Stella Artois lata 710 ml</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+      <div class="producto">
+        <img src="Diapositiva65.png" alt="Stella Artois lata 473 ml" />
+        <p>Stella Artois lata 473 ml</p>
+        <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
+      </div>
+
+    </div>
+
+
+  </section>
+
+  <section class="fila-superior">
+
+      <!-- Columna izquierda -->
+      <div class="col">
+        <div class="header-contenido">
+          <img src="logo.png" alt="Logo de Kiosco del Centro" />
+          <p class="subtitulo">Luis Monti 486, Zapala · Lunes a Sábado de 08:30 a 23:00 hs</p>
+
+          <a href="https://wa.me/5492942566488?text=Hola,%20quiero%20consultar%20por%20productos"
+            target="_blank"
+            class="boton-whatsapp">Consultar por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="col">
+        <div class="servicios-bloque">
+          <h2>SERVICIOS Y PRODUCTOS DESTACADOS</h2>
+
+          <ul>
+            <li>Frutos secos: Somos Punto de Retiro de 
+              <a href="https://www.michacheo.com.ar" target="_blank">Michacheo Nutrición</a>
+            </li>
+            <li>Cigarrillos</li>
+            <li>Bebidas energizantes e isotónicas</li>
+            <li>Golosinas y snacks</li>
+            <li>Servicio de impresión A4</li>
+            <li>Recarga de crédito para celulares</li>
+            <li>WiFi gratis para clientes</li>
+          </ul>
+
+          <!-- LOGO DE MICHACHEO AGREGADO -->
+          <!--<div class="logo-michacheo">
+            <img src="logo-michacheo.png" alt="Logo Michacheo">
+          </div>-->
+
+          <p class="formas-pago">Aceptamos efectivo, débito, MercadoPago y pagos QR</p>
+        </div>
+      </div>
+
+  </section>
+
+
+
+  <section style="background-color: #4e4d4c;">
+    <div class="logo-michacheo-centro">
+      <img src="logo-michacheo.png" alt="Logo Michacheo" />
+    </div>
+
+    <h2>¿DONDE ESTAMOS?</h2>
+    <p>Encontranos de Lunes a Sabado de 08:30 a 23:00 en 📍 Luis Monti 486, Zapala, Neuquén</p>
+    <iframe src="https://www.google.com/maps?q=luis+monti+486+zapala&output=embed" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    
+    <a href="https://instagram.com/kdczapala" target="_blank">
+        <img src="icono-instagram.png" alt="Instagram" style="width:50px; vertical-align:middle;">
+        Seguinos en Instagram!
+    </a>
+    <br /><br />
+    © 2025 Kiosco del Centro · Todos los derechos reservados<br /><br />
+    <a href="http://qr.afip.gob.ar/?qr=JjDMrLNmkep4ch1ED3oK0Q,," target="_blank">
+      <img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" alt="AFIP - Data Fiscal" style="margin-top:10px; max-width: 50px;" />
+    </a>
+  </footer>
+  
+</body>
+</html>
