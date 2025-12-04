@@ -124,9 +124,21 @@
     .subtitulo { margin: 0.5rem 0 0; text-align: center; line-height: 1.2; color: #fff; /* si quieres mantenerlo visible sobre fondo oscuro */}
    
     /* Iframe & Footer */
-    iframe{ width:90%; height:300px; border:none; margin-top:1rem; }
-    footer{ background:var(--rojo); text-align:center; padding:1rem; font-size:0.9rem; color:#fff; }
-    footer a{ color:#fff; text-decoration:none; }
+    iframe { width:90%; height:300px; border:none; margin-top:1rem; }
+    .footer-grid { background: #e80a0a; padding: 1.8rem 1rem; color: #fff; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); text-align: center; gap: 20px; align-items: center;}
+    .footer-instagram { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #fff; text-decoration: none; font-weight: 600;}
+    .footer-instagram img { width: 45px;}
+    .footer-copy { font-size: 0.9rem; line-height: 1.3;}
+    .footer-afip { text-align: center;}
+    .footer-afip img { max-width: 55px;display: block; margin: 0 auto;}
+
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; padding: 2.2rem 1rem; }
+      .footer-instagram img { width: 55px; }
+      .footer-instagram span { font-size: 1.1rem; }
+      .footer-copy { font-size: 1rem; font-weight: 600; }
+      .footer-afip img { max-width: 65px;}
+    }
 
     /* Responsive unificado */
     @media (max-width:768px){
@@ -135,7 +147,6 @@
 
       .fila-superior{ flex-direction:column; text-align:center; }
       .fila-superior .col, .header-contenido, .servicios-bloque{ width:100%; }
-
 
       .productos{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; justify-items:center; }
       .producto{ width:100%; max-width:180px; }
@@ -637,18 +648,26 @@
     <iframe src="https://www.google.com/maps?q=luis+monti+486+zapala&output=embed" loading="lazy"></iframe>
   </section>
 
-  <footer>
-    
-    <a href="https://instagram.com/kdczapala" target="_blank">
-        <img src="icono-instagram.png" alt="Instagram" style="width:50px; vertical-align:middle;">
-        Seguinos en Instagram!
+  <footer class="footer-grid">
+    <div>
+    <a href="https://instagram.com/kdczapala" target="_blank" class="footer-instagram">
+    <img src="icono-instagram.png" alt="Instagram">
+    <span>Instagram</span>
     </a>
-    <br /><br />
-    © 2025 Kiosco del Centro · Todos los derechos reservados<br /><br />
+    </div>
+
+    <div class="footer-copy">
+    © 2025 Kiosco del Centro<br>
+    Todos los derechos reservados
+    </div>
+
+    <div class="footer-afip">
     <a href="http://qr.afip.gob.ar/?qr=JjDMrLNmkep4ch1ED3oK0Q,," target="_blank">
-      <img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" alt="AFIP - Data Fiscal" style="margin-top:10px; max-width: 50px;" />
+    <img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" alt="AFIP - Data Fiscal">
     </a>
+    </div>
   </footer>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll(".carrusel-categoria").forEach(carrusel => {
