@@ -987,6 +987,35 @@
       <img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" alt="AFIP - Data Fiscal" style="margin-top:10px; max-width: 50px;" />
     </a>
   </footer>
-  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".carrusel-categoria").forEach(carrusel => {
+    
+        // 1. Duplicar elementos
+        const items = Array.from(carrusel.children);
+        items.forEach(item => {
+          const clone = item.cloneNode(true);
+          clone.classList.add("clone");
+          carrusel.appendChild(clone);
+        });
+    
+        let itemWidth = items[0].offsetWidth + 16; // ancho + gap
+    
+        // 2. Control del loop
+        carrusel.addEventListener("scroll", function () {
+          if (carrusel.scrollLeft >= carrusel.scrollWidth / 2) {
+            carrusel.scrollLeft = 0; // salta al inicio
+          }
+        });
+    
+        // En caso de resize, recalculamos
+        window.addEventListener("resize", () => {
+          itemWidth = items[0].offsetWidth + 16;
+        });
+    
+      });
+    });
+  </script>
+
 </body>
 </html>
