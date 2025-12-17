@@ -7,7 +7,7 @@
       --bg-fila: #7f7e7c;
       --blanco: #ffffff;
       --texto-osc: #322d2c;
-      --sombra: 0 4px 12px rgba(50,49,49,0.35);
+      --sombra: 0 4px 12px rgba(50,49,49,0.7);
     }
 
     html,body{ margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; color:#ededed; -webkit-font-smoothing:antialiased; }
