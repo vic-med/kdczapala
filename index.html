@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kiosco del Centro | Zapala</title>
+  <title>Kiosco del Centro en Zapala | Golosinas, Bebidas y Snacks</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,9 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet" />
 
   <!-- SEO -->
-  <meta name="description" content="Kiosco del Centro en Zapala. ALfajores, snacks, bebidas, golosinas, productos de almacén y más." />
-  <meta name="keywords" content="kiosco zapala, zapala, kiosco, kiosco del centro, bebidas, golosinas, michacheo, frutos secos" />
+  <meta name="description" content="Kiosco del Centro en Zapala. Golosinas, bebidas, snacks, alfajores y cervezas. Abierto de lunes a sábado en Luis Monti 486. Consultas por WhatsApp." />
+  <meta name="keywords" content="kiosco en zapala, kiosco zapala centro, golosinas zapala, bebidas zapala, kiosco abierto zapala, kiosco del centro zapala" />
   <meta name="author" content="Kiosco del Centro" />
+  <meta name="geo.region" content="AR-N" />
+  <meta name="geo.placename" content="Zapala" />
+
 
   <!-- Canonical -->
   <link rel="canonical" href="https://www.kioscodelcentro.com.ar/" />
@@ -32,23 +35,20 @@
   <link rel="apple-touch-icon" href="image/apple-touch-icon.png">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles3.css" />
 </head>
 
 <body oncontextmenu="return false;">
   <header class="hero-banner"></header>
-
-  <section>
+  <h1 class="visually-hidden">Kiosco del Centro en Zapala – Golosinas, Bebidas y Snacks</h1>
+  <section >
     <h2 class="titulo-con-contorno">CONOCE NUESTRO LOCAL</h2>
-    <div class="galeria">
-      <div class="img-wrapper">
-        <img src="image/frente-local-noche.webp" alt="Fachada del kiosco de noche">
-      </div>
-      <div class="img-wrapper">
-        <img src="image/interior-local.webp" alt="Interior del kiosco">
-      </div>
+    <div id="slider-local">
+      <div class="slide active" style="background-image:url('image/frente-local-noche.webp')"></div>
+      <div class="slide" style="background-image:url('image/interior-local.webp')"></div>
     </div>
   </section>
+  
 
   <section class="carrusel-bg">
     <h2 class="titulo-carrusel">ESTOS SON ALGUNOS DE LOS PRODUCTOS QUE VAS A ENCONTRAR EN EL KIOSCO</h2>
@@ -433,7 +433,6 @@
         <p>Twistos Jamon Iberico</p>
         <a href="https://wa.me/5492942566488?text=Hola" class="boton-consulta">Consultar</a>
       </div>
-
     </div>
 
     <h3 class="categoria">CERVEZAS - APERITIVOS</h3>
@@ -482,30 +481,16 @@
       </div>
 
     </div>
-
-
   </section>
 
-  <section class="fila-superior">
-    <div class="col">
-      <div class="header-contenido">
-        <img src="image/logo.webp" alt="Logo de Kiosco del Centro" />
-        <p class="subtitulo">Luis Monti 486, Zapala · Lunes a Sábado de 08:30 a 23:00 hs</p>
+  <section class="section-info">
+    <div class="info-container">
 
-        <a href="https://wa.me/5492942566488?text=Hola,%20quiero%20consultar%20por%20productos"
-          target="_blank"
-          class="boton-whatsapp">Consultar por WhatsApp</a>
-      </div>
-    </div>
+      <div class="info-services">
+        <h2 class="info-title">Servicios y productos destacados</h2>
 
-    <div class="col">
-      <div class="servicios-bloque">
-        <h2>SERVICIOS Y PRODUCTOS DESTACADOS</h2>
-
-        <ul>
-          <li>Frutos secos: Somos Punto de Retiro de 
-            <a href="https://www.michacheo.com.ar" target="_blank">Michacheo Nutrición</a>
-          </li>
+        <ul class="services-list">
+          <li>Frutos secos – Punto de retiro de <a href="https://www.michacheo.com.ar" target="_blank">Michacheo Nutrición</a></li>
           <li>Cigarrillos</li>
           <li>Bebidas energizantes e isotónicas</li>
           <li>Golosinas y snacks</li>
@@ -514,21 +499,64 @@
           <li>WiFi gratis para clientes</li>
         </ul>
 
-        <p class="formas-pago">Aceptamos efectivo, débito, MercadoPago y pagos QR</p>
+        <p class="payment-methods">
+          Aceptamos efectivo, débito, MercadoPago y pagos QR
+        </p>
+      </div>
+
+      <div class="info-brand">
+        <img src="image/logo.webp" alt="Logo de Kiosco del Centro" class="info-logo" />
+        <p class="info-address">
+          Luis Monti 486, Zapala · Lunes a Sábado de 08:30 a 23:00 hs
+        </p>
+
+        <a
+          href="https://wa.me/5492942566488?text=Hola,%20quiero%20consultar%20por%20productos"
+          target="_blank"
+          class="btn-whatsapp">
+          Consultar por WhatsApp
+        </a>
       </div>
     </div>
   </section>
 
-  <section style="background-color: #7f7e7c;">
-    <a href="https://www.michacheo.com.ar" target="_blank">
-      <div class="logo-michacheo-centro">
-        <img src="image/logo-michacheo.webp" alt="Logo Michacheo" />
-      </div>
-    </a>
-    <h2>¿DONDE ESTAMOS?</h2>
-    <p>Encontranos de Lunes a Sabado de 08:30 a 23:00 en 📍 Luis Monti 486, Zapala, Neuquén</p>
-    <iframe src="https://www.google.com/maps?q=luis+monti+486+zapala&output=embed" loading="lazy"></iframe>
+  <section class="section-partner">
+    <div class="partner-container">
+      <h2 class="partner-title">Punto de retiro</h2>
+      <p class="partner-copy">
+        En Kiosco del Centro también podés retirar tus pedidos de
+        Michacheo Nutrición de forma rápida y sin complicaciones.
+      </p>
+
+      <a href="https://www.michacheo.com.ar" target="_blank" class="partner-logo">
+        <img src="image/logo-michacheo.webp" alt="Michacheo Nutrición" />
+      </a>
+
+    </div>
   </section>
+
+
+
+  <section class="section-location">
+    <h2>¿Dónde estamos?</h2>
+
+    <p class="location-text">
+      Encontranos de lunes a sábado de 08:30 a 23:00 en 📍 Luis Monti 486, Zapala, Neuquén
+    </p>
+
+    <iframe
+      src="https://www.google.com/maps?q=luis+monti+486+zapala&output=embed"
+      loading="lazy">
+    </iframe>
+
+    <p class="location-description">
+      Kiosco del Centro es un kiosco de barrio ubicado en el centro de Zapala, Neuquén.
+      Ofrecemos golosinas, bebidas, snacks, alfajores, cervezas y servicios como recarga de crédito
+      y WiFi para clientes.
+    </p>
+
+</section>
+
 
   <footer class="footer-grid">
     <div>
@@ -549,9 +577,44 @@
     </a>
     </div>
     <div class="footer-copy">
-    <p> © 2025 – Orden Digital</p>
+    <p> Desarrollo: Orden Digital</p>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll("#slider-local .slide");
+      if (!slides.length) return;
+
+      let current = 0;
+      slides[current].classList.add("active");
+
+      setInterval(() => {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+      }, 4500);
+    });
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ConvenienceStore",
+      "name": "Kiosco del Centro",
+      "image": "https://www.kioscodelcentro.com.ar/image/logo.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Luis Monti 486",
+        "addressLocality": "Zapala",
+        "addressRegion": "Neuquén",
+        "addressCountry": "AR"
+      },
+      "openingHours": "Mo-Sa 08:30-23:00",
+      "telephone": "+54 9 2942 56-6488",
+      "url": "https://www.kioscodelcentro.com.ar"
+    }
+  </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
