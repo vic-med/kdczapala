@@ -82,7 +82,7 @@
     /*Section Partner*/
     .section-partner { background: #f4f2ef; padding: 2.8rem 1.5rem;border-top: 1px solid rgba(0,0,0,.08); border-bottom: 1px solid rgba(0,0,0,.08);}
     .partner-container { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center;}
-    .partner-copy { margin: 0 0 1.2rem; font-size: 1rem; line-height: 1.4; color: #fff;}
+    .partner-copy { margin: 0 0 1.2rem; font-size: 1rem; line-height: 1.4;}
     .partner-logo { display: block;}
     .partner-logo img { display: block; width: 110px; margin: 0 auto; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,.45);}
     .section-partner .partner-copy { color: var(--texto-osc);}
