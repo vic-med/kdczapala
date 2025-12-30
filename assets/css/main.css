@@ -17,7 +17,7 @@
 
     /* Hero */
     .hero-banner{
-      background-image: url("/assets/images/ui/logokdc.webp");
+      background-image: url("../images/ui/banner-hero.webp");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
