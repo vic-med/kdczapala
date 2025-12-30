@@ -17,13 +17,13 @@
 
     /* Hero */
     .hero-banner{
-      background-image: url("/assets/images/ui/banner-hero.webp");
+      background-image: url("/assets/images/ui/logokdc.webp");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       width:100%;
       aspect-ratio: 1.78/1;
-      min-height: 300px;
+      
     }
 
     /* Secciones y títulos */
