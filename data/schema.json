@@ -1,0 +1,17 @@
+{
+      "@context": "https://schema.org",
+      "@type": "ConvenienceStore",
+      "name": "Kiosco del Centro",
+      "email": "info@kioscodelcentro.com.ar",
+      "image": "https://www.kioscodelcentro.com.ar/assets/images/ui/logokdc.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Luis Monti 486",
+        "addressLocality": "Zapala",
+        "addressRegion": "Neuquén",
+        "addressCountry": "AR"
+      },
+      "openingHours": "Mo-Sa 08:30-22:00",
+      "telephone": "+54 9 2942 56-6488",
+      "url": "https://www.kioscodelcentro.com.ar"
+    }
