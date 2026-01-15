@@ -2,7 +2,7 @@
       "@context": "https://schema.org",
       "@type": "ConvenienceStore",
       "name": "Kiosco del Centro",
-      "email": "info@kioscodelcentro.com.ar",
+      "email": "kioscodelcentrozapala@gmail.com",
       "image": "https://www.kioscodelcentro.com.ar/assets/images/ui/logokdc.webp",
       "address": {
         "@type": "PostalAddress",
